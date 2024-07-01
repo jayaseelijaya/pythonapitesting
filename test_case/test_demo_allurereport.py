@@ -19,12 +19,12 @@ class TestPytestDemo:
         print(json_body)
 
     def test_postapi(self):
-        random_num = random.randint(10,45)
+        random_num = random.randint(108897,4565578)
         print("post request statred")
         data = {
             "id": 13576,
             "name": "jaya" + str(random_num) ,
-            "email": "jaya"+str(random_num)+"@armstrong-reichert.test",
+            "email": "jaya"+str(random_num)+"@arreichert.test",
             "gender": "female",
             "status": "inactive"
         }
