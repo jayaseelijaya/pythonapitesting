@@ -1,5 +1,7 @@
 {
   "host": "https://jsonplaceholder.typicode.com",
   "getAPI": "/posts/1",
-  "postAPI":"/posts"
+  "postAPI": "/posts",
+  "url": "https://gorest.co.in/public/v2/users",
+  "token": "Bearer a9236691775171d6d264f6cb619cd12b019997aadbc776ab5fc5ccec6b026361"
 }

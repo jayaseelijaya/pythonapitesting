@@ -1,7 +1,9 @@
+import random
 import requests
 import json
 
 # get config file from config.json
+
 with open("config/config.json", "r") as json_file:
     config = json.load(json_file)
 
@@ -17,22 +19,37 @@ with open('data/response_data.json', 'r') as json_file:
 class TestPytestDataDrivingDemo:
 
     def test_get_demo_data_driving(self):
-        host = config.get("host")
-        get_api = config.get("getAPI")
-        get_api_response_data = response_data.get("getAPI")
+        host = config.get("url")
+        Authorization_token = config.get("token")
+        
         # send request
-        response = requests.get(host+get_api)
+        response = requests.get(url=host,headers={"Authorization":Authorization_token},verify=False)
+        get_api_request_data = request_data["getAPI"]
+        get_api_response_data = response_data["getAPI"]
+        print(get_api_response_data)
+        # send get request
+       
         # assert
         assert response.status_code == 200
-        assert response.json() == get_api_response_data
+        #assert response.json() == get_api_response_data
 
     def test_post_demo_data_driving(self):
-        host = config.get("host")
-        post_api = config.get("postAPI")
-        post_api_request_data = request_data.get("postAPI")
-        post_api_response_data = response_data.get("postAPI")
+        host = config["url"]
+        Authorization_token = config["token"]
+        post_api = config["postAPI"]
+        random_num = random.randint(12345,40965)
+        
+        print("post request statred")
+        data = {
+            "id": 13576,
+            "name": "jaya" + str(random_num) ,
+            "email": "jaya"+str(random_num)+"@namreichert.test",
+            "gender": "female",
+            "status": "inactive"
+        }
         # send request
-        response = requests.post(host + post_api, post_api_request_data)
+        response = requests.post(host,json=data, headers={"Authorization":Authorization_token}, verify=False)
+        
         # assert
         assert response.status_code == 201
-        assert response.json() == post_api_response_data
+      

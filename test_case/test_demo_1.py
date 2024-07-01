@@ -1,27 +1,32 @@
 import requests
+import random
 
 
 class TestPytestDemo:
-
+    base_url = "https://reqres.in/api/users"
+    # Authorization_token = "Bearer a9236691775171d6d264f6cb619cd12b019997aadbc776ab5fc5ccec6b026361"
+    # hearder = {"Authorization":Authorization_token}
     def test_get_demo(self):
-        base_url = "https://jsonplaceholder.typicode.com"
+        
         # send request
-        response = requests.get(f"{base_url}/posts/1")
+        # response = requests.get(url=TestPytestDemo.base_url,headers=TestPytestDemo.hearder,verify=False)
+        response = requests.get(url=TestPytestDemo.base_url,params={"page":"2"},verify=False)
         # assert
         assert response.status_code == 200
-        assert response.json()['userId'] == 1
-        assert response.json()['id'] == 1
+        json_body = response.json()
+        assert json_body["page"] == 2
+        print(json_body)
 
     def test_post_demo(self):
-        base_url = "https://jsonplaceholder.typicode.com"
-        requests_data = {
-            "title": "foo",
-            "body": "bar",
-            "userId": 1
-        }
+        print("post request statred")
+        data = {
+                    "name": "morpheus",
+                    "job": "leader"
+                }
+         
+        print(data)
         # send request
-        response = requests.post(f"{base_url}/posts", requests_data)
-        # assert
-        assert response.status_code == 201
-        assert response.json()['userId'] == '1'
-        assert response.json()['id'] == 101
+        response2 = requests.post(TestPytestDemo.base_url,json=data, verify=False)
+        json_body = response2.json()
+        assert response2.status_code == 201
+        assert json_body["name"] == data["name"]
