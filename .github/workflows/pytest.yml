@@ -40,7 +40,7 @@ jobs:
         
     - name: Test with pytest
       run: |
-         pytest
+        pytest
 
 
     - name: Archive Pytest allure test report
