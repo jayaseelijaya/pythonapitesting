@@ -31,6 +31,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest
+        pytest --html=./report
 
 
     - name: Archive Pytest allure test report
