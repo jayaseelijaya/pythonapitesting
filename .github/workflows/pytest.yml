@@ -30,16 +30,17 @@ jobs:
         
     - name: Test with pytest
       run: |
-        ENV=dev pytest
+         pytest
+         allure serve allure-results
 
     - name: Archive Pytest allure test report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Pytest-allure-report
         path: allure-results
           
     - name: Upload Pytest allure report to GitHub
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Pytest-allure-report
         path: allure-results
