@@ -1,0 +1,16 @@
+{
+    "getAPI": {
+      "id": 1,
+      "name": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+      "email": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto",
+      "gender": "female",
+      "status": "inactive"
+     
+    },
+    "postAPI":{
+      "title": "foo",
+      "body": "bar",
+      "userId": "1",
+      "id": 101
+    }
+}
