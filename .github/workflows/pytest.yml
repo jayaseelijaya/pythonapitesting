@@ -49,7 +49,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Pytest-report
-        path: pytest_html_report.html
+        file: pytest_html_report.html
         
         
         
