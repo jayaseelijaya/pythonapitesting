@@ -4,8 +4,6 @@ import random
 
 class TestPytestDemo:
     base_url = "https://reqres.in/api/users"
-    # Authorization_token = "Bearer a9236691775171d6d264f6cb619cd12b019997aadbc776ab5fc5ccec6b026361"
-    # hearder = {"Authorization":Authorization_token}
     def test_get_demo(self):
         
         # send request
