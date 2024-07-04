@@ -27,36 +27,25 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
-      with:
-        java-version: '1.8'
-        distribution: 'adopt'
-        cache: maven
-    - name: Build with Maven
-      run: mvn clean install
         
     - name: Test with pytest
       run: |
         pytest
+        pytest --html=./report
 
 
     - name: Archive Pytest allure test report
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: Pytest-allure-report
         path: allure-results
           
     - name: Upload Pytest allure report to GitHub
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: Pytest-allure-report
         path: allure-results
+
         
-    - name: Upload Pytest report to GitHub
-      uses: actions/upload-artifact@v4
-      with:
-        name: Pytest-report
-        path: pytest_html_report.html
+        
+        
