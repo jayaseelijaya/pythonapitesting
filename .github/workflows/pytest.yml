@@ -45,12 +45,7 @@ jobs:
       with:
         name: Pytest-allure-report
         path: allure-results
-        
-    - name: Upload Pytest report to GitHub
-      uses: actions/upload-artifact@v3
-      with:
-        name: Pytest-report
-        path: pytest_html_report.html
+
         
         
         
